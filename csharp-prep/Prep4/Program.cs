@@ -28,8 +28,15 @@ class Program
         while (input != 0);
         Console.WriteLine($"The sum is: {sum}");
 
-        
-
+        if (numbers.Count > 0)
+                {
+                    double average = (double)sum / numbers.Count;
+                    Console.WriteLine($"The average is: {average}");
+                }
+        else
+        {
+            Console.WriteLine("No numbers entered.");
+        }
 
         
     }
