@@ -24,7 +24,10 @@ class Program
                 numbers.Add(input);
                 sum += input;
             }
-        } while (input != 0);
+        } 
+        while (input != 0);
+        Console.WriteLine($"The sum is: {sum}");
+
         {
 
         }
