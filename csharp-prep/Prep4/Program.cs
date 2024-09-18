@@ -5,15 +5,30 @@ class Program
     static void Main(string[] args)
     {
         List<int> numbers = new List<int>();
+        int sum = 0;
 
         Console.Write("Enter a list of numbers, type 0 when finished.");
-        string userList = Console.ReadLine();
-        int input = int.Parse(userList);
+        // string userList = Console.ReadLine();
+        // int input = int.Parse(userList);
 
-        while (input != 0)
+        int input;
+
+        do
         {
-            Console.WriteLine("Enter a Number")
+            Console.Write("Enter number: ");
+            string userList = Console.ReadLine();
+            input = int.Parse(userList);
+
+            if (input != 0)
+            {
+                numbers.Add(input);
+                sum += input;
+            }
+        } while (input != 0);
+        {
+
         }
+
         
     }
 }
