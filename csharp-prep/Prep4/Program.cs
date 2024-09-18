@@ -28,9 +28,8 @@ class Program
         while (input != 0);
         Console.WriteLine($"The sum is: {sum}");
 
-        {
+        
 
-        }
 
         
     }
