@@ -29,14 +29,25 @@ class Program
         Console.WriteLine($"The sum is: {sum}");
 
         if (numbers.Count > 0)
+        {
+            double average = (double)sum / numbers.Count;
+            Console.WriteLine($"The average is: {average}");
+            int maxNo = numbers[0];
+            foreach (int num in numbers)
+            {
+                if (num > maxNo)
                 {
-                    double average = (double)sum / numbers.Count;
-                    Console.WriteLine($"The average is: {average}");
+                    maxNo = num;
                 }
+            }
+            Console.WriteLine($"The maximum number is: {maxNo}");
+        }
+                    
         else
         {
             Console.WriteLine("No numbers entered.");
         }
+        
 
         
 
