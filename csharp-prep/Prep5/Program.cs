@@ -4,12 +4,12 @@ class Program
 {
     static void DisplayMessage()
     {
-        Console.WriteLine("Welcome to the Program!");
+        Console.Write("Welcome to the Program!");
     }
 
     static void DisplayPersonalMessage(string userName)
     {
-        Console.WriteLine($"Please enter your name: {userName}");
+        Console.Write($"Please enter your name: {userName}");
     }
 
     static void Main(string[] args)
