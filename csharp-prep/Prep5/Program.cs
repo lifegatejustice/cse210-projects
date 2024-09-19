@@ -14,6 +14,11 @@ class Program
 
     static void Main(string[] args)
         {
+            DisplayMessage();
+            Console.Write("Enter your name: ");
+            string userName = Console.ReadLine();
+            DisplayPersonalMessage(userName);
+            
             Console.Write("Enter a number: ");
             int number = Convert.ToInt32(Console.ReadLine());
             squareRoot(number);
