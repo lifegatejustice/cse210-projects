@@ -3,9 +3,14 @@ using System.Reflection.Metadata;
 
 public class Job
         {
-            public string _company = "Apple";
-            public string _jobTitle = "Software Engineer";
-            public string _startYear = "2024";
-            public string _endYear = "2025";
+            public string _jobTitle;
+            public string _company;
+            public string _startYear; 
+            public string _endYear; 
+
+            public void Display()
+            {
+                Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
+            }
             
         }
