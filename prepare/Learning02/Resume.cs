@@ -1,4 +1,4 @@
-sing System;
+using System;
 using System.Reflection.Metadata;
 
 public class Resume
@@ -7,9 +7,17 @@ public class Resume
             public List<Job> _jobs = new List<Job>();
 
 
-            public void DisplayJobDetails()
-            {
-                Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
-            }
+            
+    public void Display()
+    {
+        Console.WriteLine($"Name: {_personName}");
+        Console.WriteLine("Jobs:");
+
+        foreach (Job job in _jobs)
+        {
+            job.DisplayJobDetails();
+        }
+
+    }
             
         }
