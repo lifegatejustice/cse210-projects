@@ -20,6 +20,14 @@ class Program
         job1.DisplayJobDetails();
         job2.DisplayJobDetails();
 
+        Resume myResume = new Resume();
+        myResume._personName = "Allison Rose";
+
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
+
+        myResume.DisplayJobDetails();
+
     }
 }
 
