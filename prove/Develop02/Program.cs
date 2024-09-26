@@ -1,44 +1,63 @@
-class Program
+using System;
+
+namespace JournalApp
 {
-    static void Main(string[] args)
+    class Program
     {
-        IJournal journal = new Journal();
-
-        while (true)
+        static void Main(string[] args)
         {
-            Console.WriteLine("\nMenu:");
-            Console.WriteLine("1. Write a new entry");
-            Console.WriteLine("2. Display the journal");
-            Console.WriteLine("3. Save the journal to a file");
-            Console.WriteLine("4. Load the journal from a file");
-            Console.WriteLine("5. Exit");
-            Console.Write("Enter your choice: ");
-            int choice = int.Parse(Console.ReadLine());
+            Journal myJournal = new Journal();
+            bool running = true;
 
-            switch (choice)
+            while (running)
             {
-                case 1:
-                    journal.WriteNewEntry();
-                    break;
-                case 2:
-                    journal.DisplayJournal();
-                    break;
-                case 3:
-                    Console.Write("Enter the file name to save: ");
-                    string saveFileName = Console.ReadLine();
-                    journal.SaveJournalToFile(saveFileName);
-                    break;
-                case 4:
-                    Console.Write("Enter the file name to load: ");
-                    string loadFileName = Console.ReadLine();
-                    journal.LoadJournalFromFile(loadFileName);
-                    break;
-                case 5:
-                    Console.WriteLine("Exiting...");
-                    return;
-                default:
-                    Console.WriteLine("Invalid choice. Please enter a number between 1 and 5.");
-                    break;
+                Console.WriteLine("Journal Application Menu:");
+                Console.WriteLine("1. Add New Entry");
+                Console.WriteLine("2. Display All Entries");
+                Console.WriteLine("3. Save Journal to File");
+                Console.WriteLine("4. Load Journal from File");
+                Console.WriteLine("5. Quit");
+                Console.Write("Select an option (1-5): ");
+                
+                string choice = Console.ReadLine();
+                Console.WriteLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        Console.Write("Enter your response: ");
+                        string response = Console.ReadLine();
+                        myJournal.AddEntry(response);
+                        break;
+
+                    case "2":
+                        Console.WriteLine("All Journal Entries:");
+                        myJournal.DisplayAll();
+                        break;
+
+                    case "3":
+                        Console.Write("Enter filename to save to: ");
+                        string saveFileName = Console.ReadLine();
+                        myJournal.SaveToFile(saveFileName);
+                        break;
+
+                    case "4":
+                        Console.Write("Enter filename to load from: ");
+                        string loadFileName = Console.ReadLine();
+                        myJournal.LoadFromFile(loadFileName);
+                        break;
+
+                    case "5":
+                        running = false;
+                        Console.WriteLine("Exiting the application. Goodbye!");
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice. Please select a valid option (1-5).");
+                        break;
+                }
+
+                Console.WriteLine(); // Add an empty line for better readability
             }
         }
     }

@@ -2,113 +2,69 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-// Interface to abstract the behavior of the journal
-interface IJournal
+namespace JournalApp
 {
-    void WriteNewEntry();
-    void DisplayJournal();
-    void SaveJournalToFile(string fileName);
-    void LoadJournalFromFile(string fileName);
-}
-
-// Class representing a journal entry
-class Entry
-{
-    public string Prompt { get; set; }
-    public string Response { get; set; }
-    public DateTime Date { get; set; }
-
-    public Entry(string prompt, string response)
+    public class Journal : IJournal
     {
-        Prompt = prompt;
-        Response = response;
-        Date = DateTime.Now;
-    }
+        private List<Entry> _entries;
+        private PromptGenerator _promptGenerator; // Add PromptGenerator instance
 
-    // Override ToString method to display the entry
-    public override string ToString()
-    {
-        return $"Date: {Date}\nPrompt: {Prompt}\nResponse: {Response}\n";
-    }
-}
-
-// Class representing the journal
-class Journal : IJournal
-{
-    private List<Entry> entries;
-    private List<string> prompts;
-
-    public Journal()
-    {
-        entries = new List<Entry>();
-        prompts = new List<string>
+        public Journal()
         {
-            "What is one thing I learned today that I didn’t know before?",
-            "Who did I have the most meaningful conversation with today, and what did we talk about?",
-            "What was the most unexpected event that happened to me today?",
-            "Did I help anyone today, and how did it make me feel?",
-            "What new perspective did I gain from someone today?"
-        };
-    }
-
-    // Method to write a new entry
-    public void WriteNewEntry()
-    {
-        Random random = new Random();
-        string prompt = prompts[random.Next(prompts.Count)];
-
-        Console.WriteLine($"Prompt: {prompt}");
-        Console.Write("Enter your response: ");
-        string response = Console.ReadLine();
-
-        Entry entry = new Entry(prompt, response);
-        entries.Add(entry);
-        Console.WriteLine("Entry added successfully!");
-    }
-
-    // Method to display the journal
-     public void DisplayJournal()
-    {
-        foreach (Entry entry in entries)
-        {
-            Console.WriteLine(entry);
+            _entries = new List<Entry>();
+            _promptGenerator = new PromptGenerator(); // Initialize PromptGenerator
         }
-    }
 
-    // Method to save the journal to a file
-    public void SaveJournalToFile(string fileName)
-    {
-        using (StreamWriter writer = new StreamWriter(fileName))
+        // Method to write a new entry
+        public void AddEntry(string response)
         {
-            foreach (Entry entry in entries)
+            string prompt = _promptGenerator.GetRandomPrompt(); // Get random prompt
+            Entry entry = new Entry(prompt, response);
+            _entries.Add(entry);
+            Console.WriteLine("Entry added successfully!");
+        }
+
+        public void DisplayAll()
+        {
+            foreach (IEntry entry in entries)
             {
-                writer.WriteLine(entry.Prompt);
-                writer.WriteLine(entry.Response);
-                writer.WriteLine(entry.Date);
-                writer.WriteLine(); // Add an empty line between entries
+                entry.Display();
             }
         }
-        Console.WriteLine("Journal saved successfully!");
-    }
 
-    // Method to load the journal from a file
-    public void LoadJournalFromFile(string fileName)
-    {
-        entries.Clear();
-        using (StreamReader reader = new StreamReader(fileName))
+        public void SaveToFile(string fileName)
         {
-            while (!reader.EndOfStream)
+            using (StreamWriter writer = new StreamWriter(fileName))
             {
-                string prompt = reader.ReadLine();
-                string response = reader.ReadLine();
-                DateTime date = DateTime.Parse(reader.ReadLine());
-                reader.ReadLine(); // Read the empty line
-
-                Entry entry = new Entry(prompt, response) { Date = date };
-                entries.Add(entry);
+                foreach (IEntry entry in entries)
+                {
+                    writer.WriteLine(entry.PromptText);
+                    writer.WriteLine(entry.EntryText);
+                    writer.WriteLine(entry.Date);
+                    writer.WriteLine(); // Add an empty line between entries
+                }
             }
+            Console.WriteLine("Journal saved successfully!");
         }
-        Console.WriteLine("Journal loaded successfully!");
+
+        public void LoadFromFile(string fileName)
+        {
+            entries.Clear();
+            using (StreamReader reader = new StreamReader(fileName))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string prompt = reader.ReadLine();
+                    string response = reader.ReadLine();
+                    string date = reader.ReadLine();
+                    reader.ReadLine(); // Read the empty line
+
+                    Entry entry = new Entry(prompt, response);
+                    Console.WriteLine(entry.Date);
+                    entries.Add(entry);
+                }
+            }
+            Console.WriteLine("Journal loaded successfully!");
+        }
     }
 }
-
