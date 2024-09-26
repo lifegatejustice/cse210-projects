@@ -1,5 +1,18 @@
 using System;
 
+
+
+
+namespace JournalApp
+{
+    public interface IJournal
+    {
+        void AddEntry(string response); // Method to add a new entry
+        void DisplayAll(); // Method to display all entries
+        void SaveToFile(string fileName); // Method to save entries to a file
+        void LoadFromFile(string fileName); // Method to load entries from a file
+    }
+}
 namespace JournalApp
 {
     class Program

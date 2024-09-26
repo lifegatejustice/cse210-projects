@@ -18,7 +18,8 @@ namespace JournalApp
         // Method to write a new entry
         public void AddEntry(string response)
         {
-            string prompt = _promptGenerator.GetRandomPrompt(); // Get random prompt
+            string prompt = _promptGenerator.GetRandomPrompt();// Get random prompt
+            Console.WriteLine($"Prompt: {prompt}"); 
             Entry entry = new Entry(prompt, response);
             _entries.Add(entry);
             Console.WriteLine("Entry added successfully!");
@@ -26,7 +27,7 @@ namespace JournalApp
 
         public void DisplayAll()
         {
-            foreach (IEntry entry in entries)
+            foreach (IEntry entry in _entries)
             {
                 entry.Display();
             }
@@ -36,7 +37,7 @@ namespace JournalApp
         {
             using (StreamWriter writer = new StreamWriter(fileName))
             {
-                foreach (IEntry entry in entries)
+                foreach (IEntry entry in _entries)
                 {
                     writer.WriteLine(entry.PromptText);
                     writer.WriteLine(entry.EntryText);
@@ -49,7 +50,7 @@ namespace JournalApp
 
         public void LoadFromFile(string fileName)
         {
-            entries.Clear();
+            _entries.Clear();
             using (StreamReader reader = new StreamReader(fileName))
             {
                 while (!reader.EndOfStream)
@@ -61,7 +62,7 @@ namespace JournalApp
 
                     Entry entry = new Entry(prompt, response);
                     Console.WriteLine(entry.Date);
-                    entries.Add(entry);
+                    _entries.Add(entry);
                 }
             }
             Console.WriteLine("Journal loaded successfully!");
