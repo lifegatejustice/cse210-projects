@@ -20,10 +20,10 @@ namespace JournalApp
         {
             //Get and display the random prompt
             string prompt = _promptGenerator.GetRandomPrompt(); 
-            Console.WriteLine($"Prompt: {prompt}");
+            Console.WriteLine($"{prompt}");
 
             //Allow the user to enter their response
-            Console.Write("Enter your response: ");
+            Console.Write("");
             string response = Console.ReadLine();
 
             
