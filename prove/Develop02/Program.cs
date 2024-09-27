@@ -7,10 +7,15 @@ namespace JournalApp
 {
     public interface IJournal
     {
-        void AddEntry(string response); // Method to add a new entry
-        void DisplayAll(); // Method to display all entries
-        void SaveToFile(string fileName); // Method to save entries to a file
-        void LoadFromFile(string fileName); // Method to load entries from a file
+        // Method to add a new entry
+        void AddEntry(); 
+
+        // Method to display all entries
+        void DisplayAll(); 
+         // Method to save entries to a file
+        void SaveToFile(string fileName);
+        // Method to load entries from a file
+        void LoadFromFile(string fileName); 
     }
 }
 namespace JournalApp
@@ -30,17 +35,16 @@ namespace JournalApp
                 Console.WriteLine("3. Save Journal to File");
                 Console.WriteLine("4. Load Journal from File");
                 Console.WriteLine("5. Quit");
-                Console.Write("Select an option (1-5): ");
-                
+                Console.WriteLine("Select an option (1-5):");
+
                 string choice = Console.ReadLine();
                 Console.WriteLine();
 
                 switch (choice)
                 {
                     case "1":
-                        Console.Write("Enter your response: ");
-                        string response = Console.ReadLine();
-                        myJournal.AddEntry(response);
+                        
+                        myJournal.AddEntry();
                         break;
 
                     case "2":

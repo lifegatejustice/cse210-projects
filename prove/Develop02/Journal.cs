@@ -16,15 +16,23 @@ namespace JournalApp
         }
 
         // Method to write a new entry
-        public void AddEntry(string response)
-        {
-            string prompt = _promptGenerator.GetRandomPrompt();// Get random prompt
-            Console.WriteLine($"Prompt: {prompt}"); 
-            Entry entry = new Entry(prompt, response);
-            _entries.Add(entry);
-            Console.WriteLine("Entry added successfully!");
-        }
+    public void AddEntry()
+{
+    // Step 1: Get and display the random prompt
+    string prompt = _promptGenerator.GetRandomPrompt(); 
+    Console.WriteLine($"Prompt: {prompt}");
 
+    // Step 2: Allow the user to enter their response
+    Console.Write("Enter your response: ");
+    string response = Console.ReadLine();
+
+    // Step 3: Create a new journal entry and add it to the list
+    Entry entry = new Entry(prompt, response);
+    _entries.Add(entry);
+
+    // Step 4: Confirm the entry was added successfully
+    Console.WriteLine("Entry added successfully!");
+}
         public void DisplayAll()
         {
             foreach (IEntry entry in _entries)
