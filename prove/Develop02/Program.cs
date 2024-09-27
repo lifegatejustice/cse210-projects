@@ -12,11 +12,11 @@ namespace JournalApp
             while (running)
             {
                 Console.WriteLine("Journal Application Menu:");
-                Console.WriteLine("1. Write");
-                Console.WriteLine("2. Display");
-                Console.WriteLine("3. Save");
-                Console.WriteLine("4. Load");
-                Console.WriteLine("5. Quit");
+                Console.WriteLine("1. 📝 Write");
+                Console.WriteLine("2. 📄 Display");
+                Console.WriteLine("3. 💾 Save");
+                Console.WriteLine("4. 📁 Load");
+                Console.WriteLine("5. 👋 Quit");
                 Console.WriteLine("What would you like to do? ");
 
                 string choice = Console.ReadLine();
