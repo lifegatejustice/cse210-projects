@@ -1,3 +1,4 @@
+//Added a Pro tip atthe egining of the program
 using System;
 
 namespace JournalApp
@@ -11,7 +12,13 @@ namespace JournalApp
 
             while (running)
             {
-                Console.WriteLine("Journal Application Menu:");
+                Console.WriteLine("Welcome to the Journal Application");
+                //Creativity
+                Console.WriteLine("");
+                Console.WriteLine("Tip: Write daily to reflect on your thoughts and feelings!");
+                Console.WriteLine("");
+                //Ceativity
+                Console.WriteLine("Menu");
                 Console.WriteLine("1. 📝 Write");
                 Console.WriteLine("2. 📄 Display");
                 Console.WriteLine("3. 💾 Save");
