@@ -12,12 +12,12 @@ namespace JournalApp
             while (running)
             {
                 Console.WriteLine("Journal Application Menu:");
-                Console.WriteLine("1. Add New Entry");
-                Console.WriteLine("2. Display All Entries");
-                Console.WriteLine("3. Save Journal to File");
-                Console.WriteLine("4. Load Journal from File");
+                Console.WriteLine("1. Write");
+                Console.WriteLine("2. Display");
+                Console.WriteLine("3. Save");
+                Console.WriteLine("4. Load");
                 Console.WriteLine("5. Quit");
-                Console.WriteLine("Select an option (1-5):");
+                Console.WriteLine("What would you like to do? ");
 
                 string choice = Console.ReadLine();
                 Console.WriteLine();
@@ -34,20 +34,20 @@ namespace JournalApp
                         break;
 
                     case "3":
-                        Console.Write("Enter filename to save to: ");
+                        Console.Write("What is the file name: ");
                         string saveFileName = Console.ReadLine();
                         myJournal.SaveToFile(saveFileName);
                         break;
 
                     case "4":
-                        Console.Write("Enter filename to load from: ");
+                        Console.Write("Filename to load from: ");
                         string loadFileName = Console.ReadLine();
                         myJournal.LoadFromFile(loadFileName);
                         break;
 
                     case "5":
                         running = false;
-                        Console.WriteLine("Exiting the application. Goodbye!");
+                        Console.WriteLine("Exiting...");
                         break;
 
                     default:

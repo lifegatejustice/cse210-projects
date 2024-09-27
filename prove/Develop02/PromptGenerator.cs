@@ -26,7 +26,7 @@ namespace JournalApp
 
         public string GetRandomPrompt()
         {
-            int index = random.Next(_prompts.Count);
+            int index = _random.Next(_prompts.Count);
             return _prompts[index];
         }
     }
