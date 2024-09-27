@@ -7,6 +7,9 @@ namespace JournalApp
     {
         private List<string> _prompts;
 
+        //initialize random prompt every time
+        private Random _random;
+
         public PromptGenerator()
         {
             _prompts = new List<string>
@@ -17,11 +20,12 @@ namespace JournalApp
                 "What was the strongest emotion I felt today?",
                 "If I had one thing I could do over today, what would it be?"
             };
+
+            _random = new Random();
         }
 
         public string GetRandomPrompt()
         {
-            Random random = new Random();
             int index = random.Next(_prompts.Count);
             return _prompts[index];
         }

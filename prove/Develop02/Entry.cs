@@ -2,7 +2,7 @@ using System;
 
 namespace JournalApp
 {
-    public class Entry : IEntry
+    public class Entry
     {
         public string Date { get; private set; }
         public string PromptText { get; private set; }

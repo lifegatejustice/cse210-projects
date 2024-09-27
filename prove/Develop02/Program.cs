@@ -1,23 +1,5 @@
 using System;
 
-
-
-
-namespace JournalApp
-{
-    public interface IJournal
-    {
-        // Method to add a new entry
-        void AddEntry(); 
-
-        // Method to display all entries
-        void DisplayAll(); 
-         // Method to save entries to a file
-        void SaveToFile(string fileName);
-        // Method to load entries from a file
-        void LoadFromFile(string fileName); 
-    }
-}
 namespace JournalApp
 {
     class Program
@@ -43,7 +25,6 @@ namespace JournalApp
                 switch (choice)
                 {
                     case "1":
-                        
                         myJournal.AddEntry();
                         break;
 
