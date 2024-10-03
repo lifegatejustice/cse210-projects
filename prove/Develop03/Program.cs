@@ -12,6 +12,6 @@ class Program
         // Display the scripture with words visible
         Console.WriteLine(scripture.GetDisplayText());
 
-        Console.WriteLine("Is completely hidden: " + scripture.IsCompletelyHidden());
+        Console.WriteLine("Press Enter to continue or any other key to quit ");
     }
 }
