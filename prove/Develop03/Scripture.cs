@@ -39,4 +39,18 @@ public class Scripture
         return displayText.Trim();
     }
 
+    public bool IsCompletelyHidden()
+    {
+        
+      foreach (Word word in _words)
+        {
+            if (!word.IsHidden()) // If any word is not hidden, return false
+            {
+                return false;
+            }
+        }
+        return true;  
+
+    }
+
 }
