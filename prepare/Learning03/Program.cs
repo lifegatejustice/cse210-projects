@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning03 World!");
+        Fraction f1 = new Fraction();
+        f1.Display();
+
+        Fraction f2 = new Fraction(5);
+        f1.Display();
+
+        Fraction f3 = new Fraction(3,4);
+        f1.Display();
     }
 }
