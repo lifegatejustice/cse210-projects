@@ -5,24 +5,36 @@ class Program
     static void Main(string[] args)
     {
         Reference reference = new Reference("John", 3, 16, 16);
-        Scripture scripture = new Scripture(reference, "For God so loved the world");
-
-        scripture.HideRandomWords(2);
+        Scripture scripture = new Scripture(reference, "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
         
         // Display the scripture with words visible
         Console.WriteLine(scripture.GetDisplayText());
 
-        Console.WriteLine("Press Enter to continue or any other key to quit.");
-        string input = Console.ReadLine();
+        while (scripture.IsCompletelyHidden() == false)
+        {
+            // Wait for user to press Enter or any key
+            string input = Console.ReadLine();
+            
+            if (input == "")
+            {
+                // Hide 1 random word each time Enter is pressed
+                scripture.HideRandomWords(1);
+                
+                // Display the scripture after hiding a word
+                Console.WriteLine(scripture.GetDisplayText());
+                
+                // Check if all words are hidden
+                if (scripture.IsCompletelyHidden())
+                {
+                    Console.WriteLine("All words are now hidden. Program will exit.");
+                    break;
+                }
+            }
+            else
+            {
+                // Hide all words if any key is pressed other than Enter
+            }
+        }
 
-        if (input == "") // Press Enter to continue
-        {
-            // Example: Reveal more hidden words or continue interaction
-            Console.WriteLine("You pressed Enter. Continuing...");
-        }
-        else
-        {
-            Console.WriteLine("You pressed another key. Exiting.");
-        }
     }
 }
