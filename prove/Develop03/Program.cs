@@ -23,6 +23,10 @@ class Program
                 // Display the scripture after hiding a word
                 Console.WriteLine(scripture.GetDisplayText());
                 
+
+                Console.Clear();
+                Console.WriteLine(scripture.GetDisplayText());
+                
                 // Check if all words are hidden
                 if (scripture.IsCompletelyHidden())
                 {
