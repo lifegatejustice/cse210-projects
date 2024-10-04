@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 class Program
 {
     static void Main(string[] args)
@@ -17,42 +20,50 @@ class Program
             new Scripture(new Reference("James", 1, 5, 5), "If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you.")
         };
 
-        int currentScriptureIndex = 0;
+        Random random = new Random(); // Create a Random object
+
+        // Get a random index to select a scripture
+        int currentScriptureIndex = random.Next(scriptures.Count);
         Scripture currentScripture = scriptures[currentScriptureIndex];
 
-        // Display the first scripture initially with no hidden words
+        // Display the first random scripture with no hidden words
+        Console.Clear();
         Console.WriteLine(currentScripture.GetDisplayText());
 
         // Prompt user to press Enter to hide words or type 'quit' to exit
-        Console.WriteLine("Press Enter to hide random words, type 'next' to switch scriptures, or type 'quit' to exit.");
+        Console.WriteLine("\nPress Enter to hide random words, type 'next' to switch scriptures, or type 'quit' to exit.\n");
 
         while (true)
         {
             string input = Console.ReadLine();
 
-            if (input == "") // If Enter is pressed, hide a word in the current scripture
+            if (input == "")
             {
                 currentScripture.HideRandomWords(1);
                 Console.Clear();
                 Console.WriteLine(currentScripture.GetDisplayText());
 
-                // Check if all words are hidden in the current scripture
                 if (currentScripture.IsCompletelyHidden())
                 {
                     Console.WriteLine("All words are now hidden in this scripture.");
                 }
             }
-            else if (input.ToLower() == "next") // Switch to the next scripture
+            else if (input.ToLower() == "next") 
             {
-                currentScriptureIndex = (currentScriptureIndex + 1) % scriptures.Count; // Cycle through scriptures
+                currentScriptureIndex = random.Next(scriptures.Count); 
                 currentScripture = scriptures[currentScriptureIndex];
                 Console.Clear();
                 Console.WriteLine(currentScripture.GetDisplayText());
+                Console.WriteLine("\nPress Enter to hide random words, type 'next' to switch scriptures, or type 'quit' to exit.\n");
             }
-            else if (input.ToLower() == "quit") // Exit the program
+            else if (input.ToLower() == "quit")
             {
                 Console.WriteLine("Exiting the program...");
                 break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please press Enter, or type 'next' or 'quit'.");
             }
         }
     }
