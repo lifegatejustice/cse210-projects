@@ -3,7 +3,7 @@ using System.Collections.Generic;
 public class Scripture
 {
     private Reference _reference;
-    public List<Word> _words;
+    private List<Word> _words;
 
     public Scripture(Reference reference, string text)
     {
