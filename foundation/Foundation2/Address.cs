@@ -22,6 +22,6 @@ class Address
 
     public string GetFullAddress()
     {
-        return $"{_streetAddress}\n{_city}, {_stateProvince}\n{_country}";
+        return $"{_streetAddress}\n{_city}, {_state}\n{_country}";
     }
 }
