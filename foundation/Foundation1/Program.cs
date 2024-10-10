@@ -6,13 +6,13 @@ class Program
     {
         List<Video> videos = new List<Video>();
 
-        Video video1 = new Video("C# Basics Tutorial", "Code Academy", 600);
-        video1.AddComment(new Comment("John Doe", "Great tutorial, thanks!"));
+        Video video1 = new Video("C# Basics Tutorial", "Lifegates Channel", 600);
+        video1.AddComment(new Comment("Lifegate Justice", "Great tutorial, thanks!"));
         video1.AddComment(new Comment("Jane Smith", "Very helpful, I learned a lot!"));
         video1.AddComment(new Comment("Alice Johnson", "Clear and concise, well done."));
         videos.Add(video1);
 
-        Video video2 = new Video("Object-Oriented Programming", "Tech Educator", 900);
+        Video video2 = new Video("Programming with Classes", "Tech Educator", 900);
         video2.AddComment(new Comment("Michael Brown", "OOP concepts are clearer now."));
         video2.AddComment(new Comment("Sarah Davis", "Good examples, but a bit fast."));
         video2.AddComment(new Comment("David Green", "Thanks for this explanation!"));
