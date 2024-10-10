@@ -18,7 +18,7 @@ class Program
         video2.AddComment(new Comment("David Green", "Thanks for this explanation!"));
         videos.Add(video2);
 
-        Video video3 = new Video("Advanced C# Techniques", "Pro Devs", 1200);
+        Video video3 = new Video("Abstraction and Encaspulation C# Techniques", "Pro Devs", 1200);
         video3.AddComment(new Comment("Emily White", "Can't wait to try this in my project."));
         video3.AddComment(new Comment("Robert Black", "A bit complex but useful."));
         video3.AddComment(new Comment("Jessica Blue", "Thanks for the detailed breakdown."));
