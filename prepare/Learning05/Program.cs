@@ -5,8 +5,8 @@ class Program
     static void Main(string[] args)
     {
         //Create New Instance of the class
-        MathAssignment mathAssignment = new MathAssignment("Samuel Bennett", "Multiplication", "Section 7.3", "Problems 8-19");
-        Console.WriteLine(mathAssignment.GetSummary());
-        Console.WriteLine(mathAssignment.GetHomeworkList());
+        WritingAssignment writingAssignment = new WritingAssignment("Samuel Bennett", "Multiplication", "Section 7.3", "Problems 8-19", "The Causes of World War II by Mary Waters");
+        Console.WriteLine(writingAssignment.GetSummary());
+        Console.WriteLine(writingAssignment.GetWritingInformation());
     }
 }

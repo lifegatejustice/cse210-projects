@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Assignment
 {
-    private string _studentName;
+    protected string _studentName;
     private string _topic;
 
     public Assignment(string  studentName, string topic)
