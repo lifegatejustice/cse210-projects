@@ -15,7 +15,7 @@ public class MathAssignment : Assignment
 
    public string GetHomeworkList()
    {
-      return  "Homework List for " + _textbookSection + ":\n" + _problems;
+      return  "Section " + _textbookSection + ":\n" + _problems;
    }
 
 
