@@ -12,6 +12,6 @@ public class WritingAssignment : Assignment
 
     public string GetWritingInformation()
     {
-        return $"{GetSummary()}, \r\n{_title},";
+        return $"{GetSummary()} \r\n{_title}.";
     }
 }
