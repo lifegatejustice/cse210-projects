@@ -6,7 +6,6 @@ class Program
     {
         //Create New Instance of the class
         WritingAssignment writingAssignment = new WritingAssignment("Samuel Bennett", "Multiplication", "The Causes of World War II by Mary Waters");
-        Console.WriteLine(writingAssignment.GetSummary());
         Console.WriteLine(writingAssignment.GetWritingInformation());
     }
 }
