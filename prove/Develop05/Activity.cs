@@ -45,9 +45,7 @@ public class Activity
             Console.Write("\rGet Ready" + frame);  // \r brings the cursor back to the beginning of the line
             System.Threading.Thread.Sleep(250); // Adjust speed of animation (250 ms per frame)
         }
-    }
-    
-    Console.WriteLine("\rGo!    "); // Overwrite last spinner frame with "Go!"
+    } 
 }
 
     // Show a simple spinner animation for the activity
