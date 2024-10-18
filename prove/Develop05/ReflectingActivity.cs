@@ -30,20 +30,20 @@ public class ReflectingActivity : Activity
         ShowCountDown(3); // Countdown before starting the activity
 
         string prompt = GetRandomPrompt();
-        Console.WriteLine($"Prompt: {prompt}");
+        Console.WriteLine($"{prompt}");
 
         int secondsRemaining = _duration;
 
         while (secondsRemaining > 0)
         {
             string question = GetRandomQuestion();
-            Console.WriteLine($"Reflection: {question}");
+            Console.WriteLine($"{question}");
 
             // Show countdown with thinking time
-            ShowSpinner(5, "Thinking...");
+            ShowSpinner(5, "");
 
             // Optionally, allow the user to type their thoughts
-            Console.WriteLine("Type your thoughts (or press Enter to continue):");
+            Console.WriteLine("");
             Console.ReadLine(); // Wait for user input
 
             secondsRemaining -= 5; // Decrease remaining time

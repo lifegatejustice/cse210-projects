@@ -11,8 +11,8 @@ class Program
             // Display menu options to the user
             Console.WriteLine("\n--- Choose an Activity ---");
             Console.WriteLine("1. Breathing Activity");
-            Console.WriteLine("2. Listing Activity");
-            Console.WriteLine("3. Reflecting Activity");
+            Console.WriteLine("2. Reflecting Activity");
+            Console.WriteLine("3. Listing Activity");
             Console.WriteLine("4. Exit");
 
             Console.Write("Enter your choice: ");
@@ -26,10 +26,10 @@ class Program
                     selectedActivity = new BreathingActivity();
                     break;
                 case "2":
-                    selectedActivity = new ListingActivity();
+                    selectedActivity = new ReflectingActivity();
                     break;
                 case "3":
-                    selectedActivity = new ReflectingActivity();
+                    selectedActivity = new ListingActivity();
                     break;
                 case "4":
                     running = false;
@@ -44,7 +44,7 @@ class Program
             selectedActivity.DisplayStartingMessage();
 
             // Ask user for the duration of the activity
-            Console.WriteLine("Enter the duration for the session in seconds:");
+            Console.WriteLine("how long should the session last in in seconds:");
             int duration;
             while (!int.TryParse(Console.ReadLine(), out duration) || duration <= 0)
             {

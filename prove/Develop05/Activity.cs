@@ -30,6 +30,7 @@ public class Activity
     public void DisplayEndingMessage()
     {
         Console.WriteLine($"Well done! You've completed the {_name} activity for {_duration} seconds.");
+        ShowSpinner(3, "Pausing...");
     }
 
     // Display a countdown timer before starting the activity
