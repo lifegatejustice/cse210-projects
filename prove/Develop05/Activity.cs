@@ -41,21 +41,21 @@ public class Activity
     {
         foreach (string frame in spinner)
         {
-            Console.Write("Get Ready" + frame);  // \r brings the cursor back to the beginning of the line
-            System.Threading.Thread.Sleep(250); // Adjust speed of animation (250 ms per frame)
+            Console.Write("\rGet Ready" + frame);  // \r brings the cursor back to the beginning of the line
+            System.Threading.Thread.Sleep(250);// Adjust speed of animation (250 ms per frame)
         }
     } 
 }
 
     // Show a simple spinner animation for the activity
-    public void ShowSpinner(int seconds)
+    // Modify the ShowSpinner to show countdown next to "Breathe in..." and "Breathe out..."
+public void ShowSpinner(int seconds, string message)
+{
+    for (int i = seconds; i > 0; i--)
     {
-        Console.WriteLine("...");
-        for (int i = 0; i < seconds; i++)
-        {
-            Console.Write(".");
-            System.Threading.Thread.Sleep(1000); // 1-second delay
-        }
-        Console.WriteLine();
-    }
+        Console.Write($"\r{message} {i}   ");  // Display the message and the countdown
+        System.Threading.Thread.Sleep(1000);     // Wait for 1 second
+    } // Clear the line after countdown
+}
+
 }
