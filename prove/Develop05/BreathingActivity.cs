@@ -16,8 +16,8 @@ public class BreathingActivity : Activity
         while (secondsRemaining > 0)
         {
             // Breathe in for 5 seconds with countdown
-            Console.Write("Breathe in...")
-            ShowSpinner(5, "Breathe in...");
+            Console.Write("Breathe in...");
+            ShowSpinner(5, "");
             
             // Breathe out for 5 seconds with countdown
             ShowSpinner(5, "Now Breathe out...");
