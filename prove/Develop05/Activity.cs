@@ -33,29 +33,28 @@ public class Activity
     }
 
     // Display a countdown timer before starting the activity
-    public void ShowCountDown(int seconds)
-{
-    string[] spinner = { "/", "-", "\\", "|" }; // Animation frames
-
-    for (int i = seconds; i > 0; i--)
+   public void ShowCountDown(int seconds)
     {
-        foreach (string frame in spinner)
+        string[] spinner = { "/", "-", "\\", "|" }; // Animation frames
+        for (int i = seconds; i > 0; i--)
         {
-            Console.Write("\rGet Ready" + frame);  // \r brings the cursor back to the beginning of the line
-            System.Threading.Thread.Sleep(250);// Adjust speed of animation (250 ms per frame)
+            foreach (string frame in spinner)
+            {
+                Console.Write("\rGet Ready" + frame);  // \r brings the cursor back to the beginning of the line
+                System.Threading.Thread.Sleep(250); // Adjust speed of animation (250 ms per frame)
+            }
         }
-    } 
-}
+        Console.WriteLine();
+    }
 
     // Show a simple spinner animation for the activity
-    // Modify the ShowSpinner to show countdown next to "Breathe in..." and "Breathe out..."
-public void ShowSpinner(int seconds, string message)
-{
-    for (int i = seconds; i > 0; i--)
+    public void ShowSpinner(int seconds, string message)
     {
-        Console.Write($"\r{message} {i}   ");  // Display the message and the countdown
-        System.Threading.Thread.Sleep(1000);     // Wait for 1 second
+        for (int i = seconds; i > 0; i--)
+        {
+            Console.Write($"{message} {i}   ");  // Display the message and the countdown
+            System.Threading.Thread.Sleep(1000);     // Wait for 1 second
+        }
+        Console.Write("                   "); // Clear the line after countdown
     }
-}
-
 }
