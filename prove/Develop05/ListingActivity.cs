@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-public class ListingActivity: Activity
+public class ListingActivity : Activity
 {
-    private List<string> _prompts = new List<string> { "Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?"};
-    private int _count;
+    private List<string> _prompts = new List<string> { "Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?" };
 
     public ListingActivity() : base("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
-
     }
 
     public void Run()
@@ -18,8 +16,8 @@ public class ListingActivity: Activity
 
         string prompt = GetRandomPrompt();
         Console.WriteLine($"Prompt: {prompt}");
-        List<string> userResponses = GetListFromUser();
 
+        List<string> userResponses = GetListFromUser();
         Console.WriteLine("You listed:");
         foreach (var item in userResponses)
         {
@@ -29,14 +27,14 @@ public class ListingActivity: Activity
         DisplayEndingMessage();
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         Random random = new Random();
         int index = random.Next(_prompts.Count);
-        return  _prompts[index];
+        return _prompts[index];
     }
 
-    public List<string> GetListFromUser()
+    private List<string> GetListFromUser()
     {
         List<string> list = new List<string>();
         Console.WriteLine("Enter your list items (type 'done' when finished):");
@@ -49,7 +47,4 @@ public class ListingActivity: Activity
 
         return list;
     }
-
-
-
 }
