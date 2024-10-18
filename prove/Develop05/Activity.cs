@@ -55,6 +55,7 @@ public class Activity
             Console.Write($"\r{message} {i}   ");  // Display the message and the countdown
             System.Threading.Thread.Sleep(1000);     // Wait for 1 second
         }
+        Console.Write($"\r{message}       ");
         Console.WriteLine("                   "); // Clear the line after countdown
     }
 }
