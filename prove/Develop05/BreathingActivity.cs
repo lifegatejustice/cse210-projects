@@ -15,13 +15,13 @@ public class BreathingActivity : Activity
 
         while (secondsRemaining > 0)
         {
-            Console.Write("Breathe in...");
+            Console.WriteLine("Breathe in...");
             ShowSpinner(5); // Pause for 5 seconds
             Console.WriteLine("Now Breathe out...");
             ShowSpinner(5); 
             secondsRemaining -= 5;
 
-            Console.WriteLine("Breathe out...");
+            Console.WriteLine("...");
             ShowSpinner(5); // Pause for 5 seconds
             secondsRemaining -= 5;
         }
