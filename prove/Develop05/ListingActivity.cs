@@ -11,7 +11,6 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-        DisplayStartingMessage();
         ShowCountDown(3);
 
         string prompt = GetRandomPrompt();

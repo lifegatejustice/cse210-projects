@@ -27,7 +27,6 @@ public class ReflectingActivity : Activity
 
     public void Run()
     {
-        DisplayStartingMessage();
         ShowCountDown(3); // Countdown before starting the activity
 
         string prompt = GetRandomPrompt();
