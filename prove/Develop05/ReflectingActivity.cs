@@ -19,7 +19,7 @@ public class ReflectingActivity : Activity
         "What could you learn from this experience that applies to other situations?"
     };
 
-    private Random _random = new Random(); // Single instance of Random
+    private Random _random = new Random(); 
 
     public ReflectingActivity() : base("Reflecting", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
@@ -27,7 +27,7 @@ public class ReflectingActivity : Activity
 
     public void Run()
     {
-        ShowCountDown(3); // Countdown before starting the activity
+        ShowCountDown(3); 
 
         string prompt = GetRandomPrompt();
         Console.WriteLine($"{prompt}");
@@ -39,14 +39,14 @@ public class ReflectingActivity : Activity
             string question = GetRandomQuestion();
             Console.WriteLine($"{question}");
 
-            // Show countdown with thinking time
+            
             ShowSpinner(5, "");
 
-            // Optionally, allow the user to type their thoughts
+            
             Console.WriteLine("");
-            Console.ReadLine(); // Wait for user input
+            Console.ReadLine(); 
 
-            secondsRemaining -= 5; // Decrease remaining time
+            secondsRemaining -= 5; 
         }
 
         DisplayEndingMessage();

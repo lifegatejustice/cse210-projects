@@ -18,14 +18,14 @@ public class ListingActivity : Activity
     {
         ShowCountDown(3);
 
-        // Display the random prompt to the user
+        
         string prompt = GetRandomPrompt();
         Console.WriteLine($"------ {prompt}------");
 
-        // Get the user's list of responses
+        
         List<string> userResponses = GetListFromUser();
 
-        // Display the number of items listed and the items themselves
+        
         Console.WriteLine($"You listed {userResponses.Count} items:");
         foreach (var item in userResponses)
         {
@@ -34,7 +34,7 @@ public class ListingActivity : Activity
 
     }
 
-    // Get a random prompt from the list
+    
     private string GetRandomPrompt()
     {
         Random random = new Random();
@@ -42,7 +42,7 @@ public class ListingActivity : Activity
         return _prompts[index];
     }
 
-    // Get the user's list of items
+    
     private List<string> GetListFromUser()
     {
         List<string> list = new List<string>();
@@ -53,13 +53,13 @@ public class ListingActivity : Activity
         {
             input = Console.ReadLine();
 
-            // If the user types 'done', break the loop and stop collecting items
+            
             if (input.ToLower() == "done")
             {
                 break;
             }
 
-            // Add the input to the list
+            
             list.Add(input);
         }
 

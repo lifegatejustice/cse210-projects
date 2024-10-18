@@ -12,13 +12,13 @@ public class Activity
         _description = description;
     }
 
-    // Set the duration for the activity
+    
     public void SetDuration(int duration)
     {
         _duration = duration;
     }
 
-    // Display a starting message
+    
     public void DisplayStartingMessage()
     {
         Console.WriteLine($"Welcome to the {_name} activity.");
@@ -26,23 +26,23 @@ public class Activity
         Console.WriteLine($"Duration: {_duration} seconds.");
     }
 
-    // Display an ending message
+    
     public void DisplayEndingMessage()
     {
         Console.WriteLine($"Well done! You've completed the {_name} activity for {_duration} seconds.");
         ShowSpinner(3, "Pausing...");
     }
 
-    // Display a countdown timer before starting the activity
+    
    public void ShowCountDown(int seconds)
     {
-        string[] spinner = { "/", "-", "\\", "|" }; // Animation frames
+        string[] spinner = { "/", "-", "\\", "|" }; 
         for (int i = seconds; i > 0; i--)
         {
             foreach (string frame in spinner)
             {
-                Console.Write("\rGet Ready" + frame);  // \r brings the cursor back to the beginning of the line
-                System.Threading.Thread.Sleep(250); // Adjust speed of animation (250 ms per frame)
+                Console.Write("\rGet Ready" + frame);  
+                System.Threading.Thread.Sleep(250); 
             }
         }
         Console.WriteLine();
