@@ -35,14 +35,13 @@ public class Activity
     // Display a countdown timer before starting the activity
     public void ShowCountDown(int seconds)
 {
-    Console.WriteLine("Get ready...");
     string[] spinner = { "/", "-", "\\", "|" }; // Animation frames
 
     for (int i = seconds; i > 0; i--)
     {
         foreach (string frame in spinner)
         {
-            Console.Write("\rGet Ready" + frame);  // \r brings the cursor back to the beginning of the line
+            Console.Write("Get Ready" + frame);  // \r brings the cursor back to the beginning of the line
             System.Threading.Thread.Sleep(250); // Adjust speed of animation (250 ms per frame)
         }
     } 
