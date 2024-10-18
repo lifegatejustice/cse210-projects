@@ -52,7 +52,7 @@ public class Activity
     {
         for (int i = seconds; i > 0; i--)
         {
-            Console.Write($"{message} {i}   ");  // Display the message and the countdown
+            Console.Write($"\r{message} {i}   ");  // Display the message and the countdown
             System.Threading.Thread.Sleep(1000);     // Wait for 1 second
         }
         Console.WriteLine("                   "); // Clear the line after countdown
