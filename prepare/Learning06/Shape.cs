@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
 
-public class Shape
+public abstract class Shape
 {
-    private  string _color;
+    private string _color;
 
     public Shape(string color)
     {
         _color = color;
-
     }
 
     public string GetColor()
@@ -21,8 +20,8 @@ public class Shape
         _color = color;
     }
 
-    public virtual double GetArea()
-    {
+    public abstract double GetArea();
+}
         
     }
 
