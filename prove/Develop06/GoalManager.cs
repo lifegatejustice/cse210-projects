@@ -113,7 +113,7 @@ public class GoalManager
     {
         _goals[index].RecordEvent();
         // Optionally, update the player's score after recording an event
-        _score += _goals[index]._points;
+        _score += _goals[index].Points;
     }
     else
     {
