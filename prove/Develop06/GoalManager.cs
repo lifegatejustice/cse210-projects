@@ -123,14 +123,17 @@ public class GoalManager
 
 public void SaveGoals()
 {
-    using (StreamWriter file = new StreamWriter("goals.txt"))
+    Console.WriteLine("Enter the filename to save goals (e.g., goals.txt):");
+    string filename = Console.ReadLine();
+
+    using (StreamWriter file = new StreamWriter(filename))
     {
         foreach (Goal goal in _goals)
         {
             file.WriteLine(goal.GetStringRepresentation());
         }
     }
-    Console.WriteLine("Goals saved!");
+    Console.WriteLine($"Goals saved to {filename}!");
 }
 
 public void LoadGoals()
