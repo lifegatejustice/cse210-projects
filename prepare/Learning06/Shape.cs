@@ -21,4 +21,12 @@ public abstract class Shape
     }
 
     public abstract double GetArea();
+<<<<<<< HEAD
+=======
+        
+    }
+
+
+
+>>>>>>> a58194f202e692869362f180d46c049cd24771e0
 }
