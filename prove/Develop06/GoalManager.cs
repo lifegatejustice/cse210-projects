@@ -149,12 +149,8 @@ public class GoalManager
 
         foreach (string line in lines)
         {
-            // Debug output for each line
-            Console.WriteLine("Loading line: " + line);
-
-            // Deserialize the goal based on its string representation
             string[] parts = line.Split(',');
-            string goalType = parts[0]; // Identify the type of goal
+            string goalType = parts[0];
             Goal loadedGoal = null;
 
             if (goalType == "Simple")
@@ -173,7 +169,6 @@ public class GoalManager
             if (loadedGoal != null)
             {
                 _goals.Add(loadedGoal);
-                // Debug output for each loaded goal
                 Console.WriteLine("Goal loaded: " + loadedGoal.GetDetailsString());
             }
         }

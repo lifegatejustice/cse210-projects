@@ -1,0 +1,3 @@
+go to church,to ensure i go to church,100,False
+run arround,to run round,100
+Checklist,visit temple,to visit te temple,50,0,3,500
