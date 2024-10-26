@@ -6,19 +6,23 @@ public class GoalManager
 {
     private List<Goal> _goals = new List<Goal>();
     private int _score = 0;
+    Console.WriteLine();
+
+
 
     public void Start()
 {
     while (true)
     {
+        Console.WriteLine("♨WELCOME TO ETERNAL QUEST♨");
         // Display the current score automatically at the top of the menu
-        Console.WriteLine($"\nCurrent Score: {_score}");
-        Console.WriteLine("Welcome to Eternal Quest!");
-        Console.WriteLine("1. Create a new goal");
-        Console.WriteLine("2. List all goals");
-        Console.WriteLine("3. Save goals");
-        Console.WriteLine("4. Load goals");
-        Console.WriteLine("5. Record an event"); // Moved Record Event here
+        Console.WriteLine($"\nYou have: {_score} points");
+        Console.WriteLine("Menu Options!");
+        Console.WriteLine("1. Create Goal");
+        Console.WriteLine("2. List Goals");
+        Console.WriteLine("3. Save Goals");
+        Console.WriteLine("4. Load Goals");
+        Console.WriteLine("5. Record Event"); // Moved Record Event here
         Console.WriteLine("6. Exit");
 
         string choice = Console.ReadLine();
@@ -61,9 +65,9 @@ public class GoalManager
     public void CreateGoal()
 {
     Console.WriteLine("Enter goal type:");
-    Console.WriteLine("1: Simple");
-    Console.WriteLine("2: Eternal");
-    Console.WriteLine("3: Checklist");
+    Console.WriteLine("1. Simple");
+    Console.WriteLine("2. Eternal");
+    Console.WriteLine("3. Checklist");
     
     string goalType = Console.ReadLine();
 
