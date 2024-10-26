@@ -65,7 +65,7 @@ public class GoalManager
 
     public void CreateGoal()
 {
-    Console.WriteLine("Enter goal type (1: Simple, 2: Eternal, 3: Checklist):");
+    Console.WriteLine("Enter goal type \n1. Simple, \n2. Eternal, \n3. Checklist ");
     string goalType = Console.ReadLine();
 
     Console.WriteLine("Enter the goal name:");
@@ -82,7 +82,7 @@ public class GoalManager
     switch (goalType)
     {
         case "1":
-            newGoal = new SimpleGoal(name, description, points);
+            newGoal = new SimpleGoal(name,description, points);
             break;
         case "2":
             newGoal = new EternalGoal(name, description, points);
