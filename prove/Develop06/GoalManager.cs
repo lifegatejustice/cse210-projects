@@ -10,10 +10,12 @@ public class GoalManager
     {
         while (true)
         {
+            Console.Clear();
+        Console.WriteLine($"Current Score: {_score}");
             Console.WriteLine("Welcome to Eternal Quest!");
-            Console.WriteLine("1. Create a new goal");
-            Console.WriteLine("2. List all goals");
-            Console.WriteLine("3. Record an event");
+            Console.WriteLine("1. Create New Goal");
+            Console.WriteLine("2. List Goals");
+            Console.WriteLine("3. Record Event");
             Console.WriteLine("4. View score");
             Console.WriteLine("5. Save goals");
             Console.WriteLine("6. Load goals");
