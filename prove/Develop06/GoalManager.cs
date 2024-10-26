@@ -6,7 +6,6 @@ public class GoalManager
 {
     private List<Goal> _goals = new List<Goal>();
     private int _score = 0;
-    Console.WriteLine();
 
 
 
@@ -14,7 +13,8 @@ public class GoalManager
 {
     while (true)
     {
-        Console.WriteLine("♨WELCOME TO ETERNAL QUEST♨");
+        Console.WriteLine(" -----------------------");
+        Console.WriteLine("--------WELCOME TO ETERNAL QUEST----------");
         // Display the current score automatically at the top of the menu
         Console.WriteLine($"\nYou have: {_score} points");
         Console.WriteLine("Menu Options!");
@@ -24,6 +24,7 @@ public class GoalManager
         Console.WriteLine("4. Load Goals");
         Console.WriteLine("5. Record Event"); // Moved Record Event here
         Console.WriteLine("6. Exit");
+        Console.WriteLine("Select choice from the Menu");
 
         string choice = Console.ReadLine();
 
@@ -64,20 +65,22 @@ public class GoalManager
 
     public void CreateGoal()
 {
-    Console.WriteLine("Enter goal type:");
-    Console.WriteLine("1. Simple");
-    Console.WriteLine("2. Eternal");
-    Console.WriteLine("3. Checklist");
+    Console.WriteLine("The type of Goals are: ");
+    Console.WriteLine("1. Simple Goal");
+    Console.WriteLine("2. Eternal Goal");
+    Console.WriteLine("3. Checklist Goal");
+    Console.WriteLine("What type of Goal would you like to create?");
+
     
     string goalType = Console.ReadLine();
 
-    Console.WriteLine("Enter the goal name:");
+    Console.WriteLine("What is the name of your goal?");
     string name = Console.ReadLine();
 
-    Console.WriteLine("Enter the goal description:");
+    Console.WriteLine("What is the short description of it?");
     string description = Console.ReadLine();
 
-    Console.WriteLine("Enter the goal points:");
+    Console.WriteLine("What is the amount of points associated with this goal?");
     int points = int.Parse(Console.ReadLine());
 
     Goal newGoal = null;
@@ -91,10 +94,10 @@ public class GoalManager
             newGoal = new EternalGoal(name, description, points);
             break;
         case "3":
-            Console.WriteLine("Enter target amount:");
+            Console.WriteLine("How many times does this goal need to accomplished for a bonus?");
             int target = int.Parse(Console.ReadLine());
-            
-            Console.WriteLine("Enter bonus points for completing the checklist:");
+
+            Console.WriteLine("What is the bonus for completing the goal that many times? ");
             int bonus = int.Parse(Console.ReadLine());
             
             newGoal = new ChecklistGoal(name, description, points, target, bonus);
@@ -112,7 +115,7 @@ public class GoalManager
     public void RecordEvent()
     {
         ListGoalNames();
-        Console.WriteLine("Enter the number of the goal to record an event for:");
+        Console.WriteLine("Which Goal did you accomplish? ");
         int index = int.Parse(Console.ReadLine()) - 1;
 
         if (index >= 0 && index < _goals.Count)
