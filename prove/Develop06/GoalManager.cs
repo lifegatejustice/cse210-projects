@@ -7,50 +7,46 @@ public class GoalManager
     private int _score = 0;
 
     public void Start()
+{
+    while (true)
     {
-        while (true)
+        Console.Clear();
+        Console.WriteLine($"You have {_score} points");
+        Console.WriteLine("Menu Options");
+        Console.WriteLine("1. Create New Goal");
+        Console.WriteLine("2. List Goals");
+        Console.WriteLine("3. Save Goals");
+        Console.WriteLine("4. Load Goals");
+        Console.WriteLine("5. Record Event");
+        Console.WriteLine("6. Exit");
+
+        string choice = Console.ReadLine();
+
+        switch (choice)
         {
-            Console.Clear();
-        Console.WriteLine($"Current Score: {_score}");
-            Console.WriteLine("Welcome to Eternal Quest!");
-            Console.WriteLine("1. Create New Goal");
-            Console.WriteLine("2. List Goals");
-            Console.WriteLine("3. Record Event");
-            Console.WriteLine("4. View score");
-            Console.WriteLine("5. Save goals");
-            Console.WriteLine("6. Load goals");
-            Console.WriteLine("7. Exit");
-
-            string choice = Console.ReadLine();
-
-            switch (choice)
-            {
-                case "1":
-                    CreateGoal();
-                    break;
-                case "2":
-                    ListGoalNames();
-                    break;
-                case "3":
-                    RecordEvent();
-                    break;
-                case "4":
-                    DisplayPlayerInfo();
-                    break;
-                case "5":
-                    SaveGoals();
-                    break;
-                case "6":
-                    LoadGoals();
-                    break;
-                case "7":
-                    return;
-                default:
-                    Console.WriteLine("Invalid choice, please try again.");
-                    break;
-            }
+            case "1":
+                CreateGoal();
+                break;
+            case "2":
+                ListGoalNames();
+                break;
+            case "3":
+                SaveGoals();
+                break;
+            case "4":
+                LoadGoals();
+                break;
+            case "5":
+                RecordEvent();
+                break;
+            case "6":
+                return;
+            default:
+                Console.WriteLine("Invalid choice, please try again.");
+                break;
         }
     }
+}
 
     public void DisplayPlayerInfo()
     {
@@ -140,34 +136,49 @@ public void SaveGoals()
 
 public void LoadGoals()
 {
-    if (File.Exists("goals.txt"))
+    Console.WriteLine("Enter the filename to load goals (e.g., goals.txt):");
+    string filename = Console.ReadLine();
+
+    if (File.Exists(filename))
     {
         _goals.Clear();
-        string[] lines = File.ReadAllLines("goals.txt");
+        string[] lines = File.ReadAllLines(filename);
 
         foreach (string line in lines)
         {
-            // Deserialize the goal based on its string representation
-            string[] parts = line.Split(',');
-            string goalType = parts[0]; // Identify the type of goal
-            if (goalType == "Simple")
+            try
             {
-                _goals.Add(new SimpleGoal(parts[1], parts[2], int.Parse(parts[3])));
+                // Deserialize the goal based on its string representation
+                string[] parts = line.Split(',');
+                string goalType = parts[0]; // Identify the type of goal
+
+                if (goalType == "Simple" && parts.Length >= 4)
+                {
+                    _goals.Add(new SimpleGoal(parts[1], parts[2], int.Parse(parts[3])));
+                }
+                else if (goalType == "Eternal" && parts.Length >= 4)
+                {
+                    _goals.Add(new EternalGoal(parts[1], parts[2], int.Parse(parts[3])));
+                }
+                else if (goalType == "Checklist" && parts.Length >= 6)
+                {
+                    _goals.Add(new ChecklistGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5])));
+                }
+                else
+                {
+                    Console.WriteLine($"Skipping invalid line: {line}");
+                }
             }
-            else if (goalType == "Eternal")
+            catch (Exception ex)
             {
-                _goals.Add(new EternalGoal(parts[1], parts[2], int.Parse(parts[3])));
-            }
-            else if (goalType == "Checklist")
-            {
-                _goals.Add(new ChecklistGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5])));
+                Console.WriteLine($"Error loading line: {line}. Exception: {ex.Message}");
             }
         }
         Console.WriteLine("Goals loaded!");
     }
     else
     {
-        Console.WriteLine("No saved goals found.");
+        Console.WriteLine("File not found. Please check the filename and try again.");
     }
 }
 
